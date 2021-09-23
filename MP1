@@ -1,0 +1,95 @@
+import java.util.Scanner;
+
+class Calculator {
+	private String name;
+		
+	public float addition(float A, float B) {
+		return (A + B);
+	}
+		
+	public float subtraction(float A, float B) {
+		return (A - B);
+	}
+		
+	public float multiplication(float A, float B) {
+		return (A * B);
+	}
+		
+	public void setName(String N) {
+		name = N;
+	}
+		
+	public String getName() {
+		System.out.println("Welcome to the Calculator designed by " + name + ".");
+		System.out.println("Enter A to Add, S to Subtract, M to Multiply, and Q to quit.");
+		
+		return name;
+	}
+}
+	 
+public class MP1 {
+	public static void main (String [] args) {
+		String userArg1 = ""; // first user input
+		String userArg2 = ""; // second user input
+		String functionSelect = ""; //user selection for calculator input
+		float userArg1_float = 0;
+		float userArg2_float = 0;
+		Scanner scan = new Scanner(System.in); //create scanner for taking user input
+	
+		Calculator calc1 = new Calculator();
+		calc1.setName("Group 28"); //set name of group
+		calc1.getName(); //display welcome message
+			
+		//main while loop for program
+		while(true) {
+			functionSelect = scan.nextLine(); //take user selection of input function
+			System.out.println(functionSelect);
+			
+			if (functionSelect == "Q")
+				System.out.println("True");
+			else {
+				System.out.println(functionSelect);
+				System.out.println("False");
+			}
+			
+			if (functionSelect == "A" || functionSelect == "S" || functionSelect == "M" || functionSelect == "Q") {
+				System.out.println("User selection (inside): " + functionSelect);
+				if (functionSelect == "Q") {
+					break; }
+				/*
+				else {
+					System.out.println("Enter argument 1: ");
+					userArg1 = scan.nextLine();
+					System.out.println("Enter argument 2: ");
+					userArg2 = scan.nextLine();
+					
+					try {
+						userArg1_float = Float.parseFloat(userArg1); //convert user's first argument to float
+						userArg2_float = Float.parseFloat(userArg2);
+					}
+					
+					catch (Exception e) {
+						calc1.getName(); //if cannot convert user's input into a float, then show intro message
+					}
+					
+					switch(functionSelect) {
+					case "A": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +"is " + calc1.addition(userArg1_float, userArg2_float) );
+							  break;
+					case "M": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +"is " + calc1.multiplication(userArg1_float, userArg2_float) );
+					  		  break;
+					case "S": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +"is " + calc1.subtraction(userArg1_float, userArg2_float) );
+							  break;
+					}
+				}
+				*/
+			}
+			else {
+				calc1.getName(); //if user does not enter valid input, redisplay welcome message
+
+			}
+			
+		}
+		
+	}
+}
+
