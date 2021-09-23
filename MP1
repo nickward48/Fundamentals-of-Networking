@@ -43,20 +43,12 @@ public class MP1 {
 		//main while loop for program
 		while(true) {
 			functionSelect = scan.nextLine(); //take user selection of input function
-			System.out.println(functionSelect);
 			
-			if (functionSelect == "Q")
-				System.out.println("True");
-			else {
-				System.out.println(functionSelect);
-				System.out.println("False");
-			}
 			
-			if (functionSelect == "A" || functionSelect == "S" || functionSelect == "M" || functionSelect == "Q") {
-				System.out.println("User selection (inside): " + functionSelect);
-				if (functionSelect == "Q") {
-					break; }
-				/*
+			if (functionSelect.equals("A")|| functionSelect.equals("S") || functionSelect.equals("M") || functionSelect.equals("Q")) {
+				if (functionSelect.equals("Q")) //if user selects to quit, then break out of while loop
+					break;
+				
 				else {
 					System.out.println("Enter argument 1: ");
 					userArg1 = scan.nextLine();
@@ -66,26 +58,30 @@ public class MP1 {
 					try {
 						userArg1_float = Float.parseFloat(userArg1); //convert user's first argument to float
 						userArg2_float = Float.parseFloat(userArg2);
+						
+						switch(functionSelect) {
+						case "A": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +" is " + calc1.addition(userArg1_float, userArg2_float) );
+								  break;
+						case "M": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +" is " + calc1.multiplication(userArg1_float, userArg2_float) );
+						  		  break;
+						case "S": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +" is " + calc1.subtraction(userArg1_float, userArg2_float) );
+								  break;
+						}
+						
+						calc1.getName(); //display welcome message again after successfully completing operation
+
 					}
 					
 					catch (Exception e) {
 						calc1.getName(); //if cannot convert user's input into a float, then show intro message
 					}
 					
-					switch(functionSelect) {
-					case "A": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +"is " + calc1.addition(userArg1_float, userArg2_float) );
-							  break;
-					case "M": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +"is " + calc1.multiplication(userArg1_float, userArg2_float) );
-					  		  break;
-					case "S": System.out.println("The sum of " + userArg1_float + " and " + userArg2_float +"is " + calc1.subtraction(userArg1_float, userArg2_float) );
-							  break;
-					}
+					
 				}
-				*/
 			}
+			
 			else {
 				calc1.getName(); //if user does not enter valid input, redisplay welcome message
-
 			}
 			
 		}
